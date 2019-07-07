@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>main.rb</title>
+<meta name="Generator" content="SciTE - www.Scintilla.org" />
+<style type="text/css">
+.S0 {
+	color: #808080;
+}
+.S2 {
+	font-family: 'Comic Sans MS';
+	color: #007F00;
+	font-size: 9pt;
+}
+.S4 {
+	color: #007F7F;
+}
+.S5 {
+	font-weight: bold;
+	color: #00007F;
+}
+.S6 {
+	font-family: 'Courier New';
+	color: #7F007F;
+	font-size: 10pt;
+}
+.S10 {
+	font-weight: bold;
+	color: #000000;
+}
+span {
+	font-family: 'Verdana';
+	color: #000000;
+	font-size: 10pt;
+}
+</style>
+</head>
+<body bgcolor="#FFFFFF">
+<span>require<span class="S0"> </span><span class="S6">"receiver.rb"</span><br />
+LENGTH_OF_BUFFER<span class="S10">=</span><span class="S4">16</span><br />
+receiver<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>Receiver<span class="S10">.</span>new<span class="S10">(</span>LENGTH_OF_BUFFER<span class="S10">)</span><br />
+loop<span class="S0"> </span><span class="S5">do</span><br />
+<span class="S0">&nbsp;&nbsp;</span>event_data<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>gets<span class="S10">.</span>chomp<span class="S0"> &nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S2"># user input</span><br />
+<span class="S0">&nbsp;&nbsp;</span>receiver<span class="S10">.</span>event<span class="S10">(</span>event_data<span class="S10">)</span><span class="S0"> &nbsp;</span><span class="S2"># most of what takes place here is in receiver.rb</span><br />
+<span class="S5">end</span><br />
+<br />
+<br />
+<span class="S0"></span></span>
+</body>
+</html>

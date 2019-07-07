@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LinkedList.rb</title>
+<meta name="Generator" content="SciTE - www.Scintilla.org" />
+<style type="text/css">
+.S0 {
+	color: #808080;
+}
+.S2 {
+	font-family: 'Comic Sans MS';
+	color: #007F00;
+	font-size: 9pt;
+}
+.S4 {
+	color: #007F7F;
+}
+.S5 {
+	font-weight: bold;
+	color: #00007F;
+}
+.S6 {
+	font-family: 'Courier New';
+	color: #7F007F;
+	font-size: 10pt;
+}
+.S8 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.S9 {
+	font-weight: bold;
+	color: #007F7F;
+}
+.S10 {
+	font-weight: bold;
+	color: #000000;
+}
+.S14 {
+	color: #C0A030;
+}
+.S16 {
+	color: #B00080;
+}
+span {
+	font-family: 'Verdana';
+	color: #000000;
+	font-size: 10pt;
+}
+</style>
+</head>
+<body bgcolor="#FFFFFF">
+<span><span class="S2"># A doubly linked list I implemented back when I first began using Ruby; it works I suppose.</span><br />
+<span class="S5">class</span><span class="S0"> </span><span class="S8">LinkedList</span><br />
+<span class="S0">&nbsp;&nbsp;</span>attr_accessor<span class="S0"> </span><span class="S14">:size</span><span class="S10">,</span><span class="S0"> </span><span class="S14">:first</span><span class="S10">,</span><span class="S0"> </span><span class="S14">:last</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">def</span><span class="S0"> </span><span class="S9">initialize</span><span class="S10">(</span>object<span class="S10">=</span><span class="S5">nil</span><span class="S10">)</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S16">@first</span><span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>Node<span class="S10">.</span>new<span class="S10">(</span><span class="S5">nil</span><span class="S10">)</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S16">@last</span><span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>Node<span class="S10">.</span>new<span class="S10">(</span><span class="S5">nil</span><span class="S10">)</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S16">@first</span><span class="S10">.</span>next<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span><span class="S16">@last</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S16">@last</span><span class="S10">.</span>prev<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span><span class="S16">@first</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S16">@size</span><span class="S0"> </span><span class="S10">=</span><span class="S0"> </span><span class="S4">0</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">if</span><span class="S0"> </span><span class="S10">(</span>object<span class="S0"> </span><span class="S10">!=</span><span class="S0"> </span><span class="S5">nil</span><span class="S10">)</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>insertFront<span class="S10">(</span>object<span class="S10">)</span><span class="S0"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">def</span><span class="S0"> </span><span class="S9">test</span><span class="S10">;</span>puts<span class="S0"> </span><span class="S6">"test"</span><span class="S10">;</span>exit<span class="S10">;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">def</span><span class="S0"> </span><span class="S9">rightSentinelNode</span><span class="S10">;</span><span class="S16">@last</span><span class="S10">;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">def</span><span class="S0"> </span><span class="S9">leftSentinelNode</span><span class="S10">;</span><span class="S16">@first</span><span class="S10">;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">def</span><span class="S0"> </span><span class="S9">getFirstData</span><span class="S10">;</span>getFirstNode<span class="S10">.</span>object<span class="S10">;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">def</span><span class="S0"> </span><span class="S9">getLastData</span><span class="S10">;</span>getLastNode<span class="S10">.</span>object<span class="S10">;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">def</span><span class="S0"> </span><span class="S9">insertFront</span><span class="S10">(</span>object<span class="S10">=</span><span class="S5">nil</span><span class="S10">)</span><span class="S0"> </span><span class="S2"># &nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>tempNode<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>Node<span class="S10">.</span>new<span class="S10">(</span>object<span class="S10">)</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>tempNode<span class="S10">.</span>prev<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span><span class="S16">@first</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>tempNode<span class="S10">.</span>next<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span><span class="S16">@first</span><span class="S10">.</span>next<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S16">@first</span><span class="S10">.</span>next<span class="S10">.</span>prev<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>tempNode<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S16">@first</span><span class="S10">.</span>next<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>tempNode<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S16">@size</span><span class="S0"> </span><span class="S10">+=</span><span class="S0"> </span><span class="S4">1</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">return</span><span class="S0"> </span><span class="S16">@first</span><span class="S10">.</span>next<span class="S0"> &nbsp;&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">def</span><span class="S0"> </span><span class="S9">insertBack</span><span class="S10">(</span>object<span class="S10">=</span><span class="S5">nil</span><span class="S10">)</span><span class="S0"> </span><span class="S2">#we need more of these</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>tempNode<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>Node<span class="S10">.</span>new<span class="S10">(</span>object<span class="S10">)</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>tempNode<span class="S10">.</span>next<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span><span class="S16">@last</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>tempNode<span class="S10">.</span>prev<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span><span class="S16">@last</span><span class="S10">.</span>prev<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S16">@last</span><span class="S10">.</span>prev<span class="S10">.</span>next<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>tempNode<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S16">@last</span><span class="S10">.</span>prev<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>tempNode<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S16">@size</span><span class="S0"> </span><span class="S10">+=</span><span class="S0"> </span><span class="S4">1</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">return</span><span class="S0"> </span><span class="S16">@last</span><span class="S10">.</span>prev<span class="S0"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">def</span><span class="S0"> </span><span class="S9">setLast</span><span class="S10">(</span>object<span class="S10">)</span><br />
+<span class="S0">&nbsp;  &nbsp;</span>temp<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>getLastNode<br />
+<span class="S0">&nbsp;  &nbsp;</span>success<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span><span class="S5">false</span><br />
+<span class="S0">&nbsp;  &nbsp;</span><span class="S5">if</span><span class="S0"> </span><span class="S10">(</span>temp<span class="S0"> </span><span class="S10">!=</span><span class="S0"> </span><span class="S5">nil</span><span class="S10">)</span><br />
+<span class="S0">&nbsp; &nbsp;  &nbsp;</span>temp<span class="S10">.</span>object<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>object<br />
+<span class="S0">&nbsp; &nbsp;  &nbsp;</span>success<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span><span class="S5">true</span><br />
+<span class="S0">&nbsp;  &nbsp;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;  &nbsp;</span><span class="S5">return</span><span class="S0"> </span>success<br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">def</span><span class="S0"> </span><span class="S9">setFirst</span><span class="S10">(</span>object<span class="S10">)</span><span class="S0"> </span><span class="S2">#</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>temp<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>getFirstNode<br />
+<span class="S0">&nbsp;  &nbsp;</span>success<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span><span class="S5">false</span><br />
+<span class="S0">&nbsp;  &nbsp;</span><span class="S5">if</span><span class="S0"> </span><span class="S10">(</span>temp<span class="S0"> </span><span class="S10">!=</span><span class="S0"> </span><span class="S5">nil</span><span class="S10">)</span><br />
+<span class="S0">&nbsp; &nbsp;  &nbsp;</span>temp<span class="S10">.</span>object<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>object<br />
+<span class="S0">&nbsp; &nbsp;  &nbsp;</span>success<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span><span class="S5">true</span><br />
+<span class="S0">&nbsp;  &nbsp;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;  &nbsp;</span><span class="S5">return</span><span class="S0"> </span>success<br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;&nbsp;</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">def</span><span class="S0"> </span><span class="S9">traverse</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S2">#puts @first.next.object;exit</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>traverseNode<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>getFirstNode<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">while</span><span class="S0"> </span><span class="S10">(</span>traverseNode<span class="S10">.</span>next<span class="S0"> </span><span class="S10">!=</span><span class="S0"> </span><span class="S5">nil</span><span class="S10">)</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">yield</span><span class="S0"> </span>traverseNode<span class="S0"> </span><span class="S2">#puts(traverseNode.object)</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>traverseNode<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>traverseNode<span class="S10">.</span>next<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">end</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">def</span><span class="S0"> </span><span class="S9">insertBefore</span><span class="S10">(</span>nodeLocation<span class="S10">,</span><span class="S0"> </span>object<span class="S10">=</span><span class="S5">nil</span><span class="S10">)</span><span class="S0"> </span><span class="S2">#returns the new inserted node, or the same nodeLocation if it fails to insert (only one case!).</span><br />
+<span class="S0">&nbsp; </span>insertion<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>nodeLocation<br />
+<span class="S0">&nbsp; </span><span class="S5">if</span><span class="S0"> </span><span class="S10">(</span>nodeLocation<span class="S0"> </span><span class="S10">!=</span><span class="S0"> </span><span class="S16">@first</span><span class="S10">)</span><br />
+<span class="S0">&nbsp; &nbsp; </span>tempNode<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>Node<span class="S10">.</span>new<span class="S10">(</span>object<span class="S10">)</span><br />
+<span class="S0">&nbsp; &nbsp; </span>tempNode<span class="S10">.</span>prev<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>nodeLocation<span class="S10">.</span>prev<br />
+<span class="S0">&nbsp; &nbsp; </span>tempNode<span class="S10">.</span>next<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>nodeLocation<br />
+<span class="S0">&nbsp; &nbsp; </span>nodeLocation<span class="S10">.</span>prev<span class="S10">.</span>next<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>tempNode<br />
+<span class="S0">&nbsp; &nbsp; </span>nodeLocation<span class="S10">.</span>prev<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>tempNode<br />
+<span class="S0">&nbsp; &nbsp; </span>insertion<span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>tempNode<br />
+<span class="S0">&nbsp; &nbsp; </span><span class="S16">@size</span><span class="S0"> </span><span class="S10">+=</span><span class="S0"> </span><span class="S4">1</span><br />
+<span class="S0">&nbsp; </span><span class="S5">end</span><br />
+<span class="S0">&nbsp; </span><span class="S5">return</span><span class="S0"> </span>insertion<br />
+<span class="S5">end</span><br />
+<br />
+<span class="S5">def</span><span class="S0"> </span><span class="S9">getLastNode</span><span class="S0"> </span><span class="S2">#not counting the sentinel node</span><br />
+<span class="S0">&nbsp; </span><span class="S5">unless</span><span class="S0"> </span><span class="S10">(</span><span class="S16">@size</span><span class="S0"> </span><span class="S10">==</span><span class="S0"> </span><span class="S4">0</span><span class="S10">)</span><br />
+<span class="S0">&nbsp; &nbsp; </span><span class="S5">return</span><span class="S0"> </span><span class="S16">@last</span><span class="S10">.</span>prev<br />
+<span class="S0">&nbsp; </span><span class="S5">else</span><br />
+<span class="S0">&nbsp; &nbsp; </span><span class="S5">return</span><span class="S0"> </span><span class="S5">nil</span><br />
+<span class="S0">&nbsp; </span><span class="S5">end</span><br />
+<span class="S5">end</span><br />
+<br />
+<span class="S5">def</span><span class="S0"> </span><span class="S9">getFirstNode</span><span class="S0"> </span><span class="S2">#get the pointer to the first node</span><br />
+<span class="S0">&nbsp; </span><span class="S5">unless</span><span class="S0"> </span><span class="S10">(</span><span class="S16">@size</span><span class="S0"> </span><span class="S10">==</span><span class="S0"> </span><span class="S4">0</span><span class="S10">)</span><br />
+<span class="S0">&nbsp; &nbsp; </span><span class="S5">return</span><span class="S0"> </span><span class="S16">@first</span><span class="S10">.</span>next<br />
+<span class="S0">&nbsp; </span><span class="S5">else</span><br />
+<span class="S0">&nbsp; &nbsp; </span><span class="S5">return</span><span class="S0"> </span><span class="S5">nil</span><br />
+<span class="S0">&nbsp; </span><span class="S5">end</span><br />
+<span class="S5">end</span><br />
+<br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">class</span><span class="S0"> </span><span class="S8">Node</span><span class="S0"> </span><span class="S2">#oh NOde</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>attr_accessor<span class="S0"> </span><span class="S14">:next</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>attr_accessor<span class="S0"> </span><span class="S14">:prev</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span>attr_accessor<span class="S0"> </span><span class="S14">:object</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">def</span><span class="S0"> </span><span class="S9">initialize</span><span class="S10">(</span>object<span class="S10">=</span><span class="S5">nil</span><span class="S10">)</span><br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S16">@object</span><span class="S0"> </span><span class="S10">=</span><span class="S0"> </span>object<br />
+<span class="S0">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="S5">end</span><br />
+<span class="S0">&nbsp;&nbsp;</span><span class="S5">end</span><br />
+<span class="S5">end</span></span>
+</body>
+</html>

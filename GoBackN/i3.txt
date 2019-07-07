@@ -1,0 +1,42 @@
+SYN 99998
+DAT 99999 I hopped off the plane at LAX with a dream and my 
+DAT 00000 cardigan / welcome to the land of fame excess, (wo
+DAT 00002 OOPS OUT OF ORDER PACKET                          
+DAT 00001 ah) am I gonna fit in? / Jumped in the cab, Here I
+DAT 00002  am for the first time / Look to the right and I s
+DAT 00001 OOPS OUT OF ORDER PACKET                          
+DAT 00003 ee the Hollywood sign / This is all so crazy, Ever
+DAT 00004 ybody seems so famous / My tummys turnin and I'm f
+DAT 99999 OOPS OUT OF ORDER PACKET
+DAT 99998 OOPS OUT OF ORDER PACKET
+DAT 99997 OOPS OUT OF ORDER PACKET
+DAT 00005 eelin kinda home sick / Too much pressure and I'm 
+DAT 00006 nervous, That's when the taxi man turned on the ra
+DAT 00007 dio / and a Jay Z song was on and the Jay Z song w
+DAT 00008 as on and the Jay Z song was on
+DAT 00001 OOPS OUT OF ORDER PACKET                                             
+DAT 00009 So I put my hands up They’re playing my song, And 
+DAT 00010 the butterflies fly away / Noddin’ my head like ye
+DAT 00011 ah, Moving my hips like yeah / And I got my hands 
+DAT 00012 up, They’re playin my song, I know I'm gonna be ok
+DAT 00013  / Yeah, It's a party in the USA, Yeah, It's a par
+DAT 00014 ty in the USA                                     
+DAT 00015 Get to the club in my taxi cab, Everybody's lookin
+DAT 00016  at me now / Like "Who's that chick, thats rockin’
+DAT 00017  kicks? She gotta be from out of town" / So hard w
+DAT 00018 ith my girls not around me, Its definitely not a N
+DAT 00019 ashville party / Cause’ all I see are stilletos, I
+DAT 12345 OOPS OUT OF ORDER PACKET
+DAT 00020  guess I never got the memo / My tummys turnin and
+DAT 00021  I'm feelin kinda home sick, Too much pressure and
+DAT 00022  I'm nervous / That's when the D.J. dropped my fav
+DAT 12346 OOPS OUT OF ORDER PACKET
+DAT 00023 orite tune and a Britney song was on, and the Brit
+DAT 00024 ney song was on, and the Britney song was on      
+DAT 00025 So I put my hands up They’re playing my song, And 
+DAT 00026 the butterflies fly away / Noddin’ my head like ye
+DAT 00027 ah, Moving my hips like yeah / And I got my hands 
+DAT 00028 up, They’re playin my song, I know I'm gonna be ok
+DAT 00029  / Yeah, It's a party in the USA, Yeah, It's a par
+DAT 00030 ty in the USA                                     
+FIN

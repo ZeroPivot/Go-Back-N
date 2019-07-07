@@ -1,0 +1,25 @@
+SYN 00232
+DAT 00234 THIS SHOULD BE REJECTED.                          
+DAT 00233 THIS SHOULD BE THE FIRST ACCEPTED PACKET.         
+DAT 00234 THIS PACKET SHOULD BE ACCEPTED AND THE PREVIOUS PA
+DAT 00235 CKET 00234 SHOULD NEVER HAVE BEEN SAVED.  THIS IS 
+DAT 00236 GO-BACK-N ARQ, NOT SELECTIVE REPEAT ARQ.          
+DAT 12345 OH MY, THIS PACKET IS WILDLY OUT OF PLACE!        
+DAT 12346 THIS PACKET IS TOO, THEY BETTER BE REJECTED!      
+DAT 00237 NOW THAT'S NORE LIKE IT, A PACKET TO ACCEPT!      
+DAT 00238 They say a man should always dress for the job he 
+DAT 00239 wants / So why am I dressed like a pirate in this 
+DAT 00240 restaurant / It's all because some hacker stole my
+DAT 12347 OOPS, THERE'S ANOTHER BAD PACKET, BETTER REJECT!  
+DAT 00241 identity / Now I'm in here every evening serving c
+DAT 00242 howder and ice tea / Should'a gone to free credit 
+DAT 00240 THIS IS A BAD PACKET TOO, DON'T ACCEPT IT!!!      
+DAT 00243 report dot com [yee haw] / I could'a seen this com
+DAT 00244 in' at me like an atom bomb / They monitor your cr
+DAT 00245 edit and send you e-mail alerts / So you don't end
+DAT 00246 up selling fish to tourists in t-shirts.          
+DAT 00247 BUT YOU HAVE TO SIGN UP FOR A CREDIT MONITORING SE
+DAT 00248 RVICE, SO HOW CAN THAT POSSIBLY BE CALLED FREE?   
+DAT 00249 THIS PACKET WILL OVERWRITE THE VERY FIRST ONE.    
+FIN
+
